@@ -567,7 +567,35 @@
                     BorderSizePixel = 0;
                     BackgroundColor3 = rgb(255, 255, 255)
                 }); cfg.multi_holder = items[ "multi_holder" ];
-                
+
+                items[ "close_btn" ] = library:create( "TextButton" , {
+                    Parent = items[ "main" ];
+                    Name = "\0";
+                    BackgroundTransparency = 1;
+                    Position = dim2(1, -30, 0, 15);
+                    Size = dim2(0, 20, 0, 20);
+                    Text = "X";
+                    FontFace = fonts.font;
+                    TextColor3 = rgb(100, 100, 100);
+                    TextSize = 18;
+                    BorderColor3 = rgb(0, 0, 0);
+                    BorderSizePixel = 0;
+                    AutoButtonColor = false;
+                    ZIndex = 5;
+                });
+
+                items[ "close_btn" ].MouseEnter:Connect(function()
+                    library:tween(items[ "close_btn" ], {TextColor3 = rgb(255, 255, 255)})
+                end)
+
+                items[ "close_btn" ].MouseLeave:Connect(function()
+                    library:tween(items[ "close_btn" ], {TextColor3 = rgb(100, 100, 100)})
+                end)
+
+                items[ "close_btn" ].MouseButton1Click:Connect(function()
+                    library:unload_menu()
+                end)
+
                 library:create( "Frame" , {
                     AnchorPoint = vec2(0, 1);
                     Parent = items[ "multi_holder" ];
