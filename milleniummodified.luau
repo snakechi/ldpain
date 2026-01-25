@@ -1,11 +1,6 @@
 --[[
-
-    Milenium Library (Modified)
-    -> Original by @finobe 
-    -> Modifications:
-       - Removed Rounding
-       - Removed Configs
-       - Visible Resize Button
+    Milenium Library
+    Original by @finobe 
 ]]
 
 -- Variables 
@@ -556,23 +551,12 @@
                     TextSize = 30;
                     BackgroundColor3 = rgb(255, 255, 255)
                 }); library:apply_theme(items[ "title" ], "accent", "TextColor3");
-                
-                items[ "multi_holder" ] = library:create( "Frame" , {
-                    Parent = items[ "main" ];
-                    Name = "\0";
-                    BackgroundTransparency = 1;
-                    Position = dim2(0, 196, 0, 0);
-                    BorderColor3 = rgb(0, 0, 0);
-                    Size = dim2(1, -196, 0, 56);
-                    BorderSizePixel = 0;
-                    BackgroundColor3 = rgb(255, 255, 255)
-                }); cfg.multi_holder = items[ "multi_holder" ];
 
-                items[ "close_btn" ] = library:create( "TextButton" , {
-                    Parent = items[ "main" ];
+				items[ "close_btn" ] = library:create( "TextButton" , {
+                    Parent = items[ "side_frame" ];
                     Name = "\0";
                     BackgroundTransparency = 1;
-                    Position = dim2(1, -30, 0, 15);
+                    Position = dim2(1, -25, 0, 15);
                     Size = dim2(0, 20, 0, 20);
                     Text = "X";
                     FontFace = fonts.font;
@@ -595,6 +579,17 @@
                 items[ "close_btn" ].MouseButton1Click:Connect(function()
                     library:unload_menu()
                 end)
+
+                items[ "multi_holder" ] = library:create( "Frame" , {
+                    Parent = items[ "main" ];
+                    Name = "\0";
+                    BackgroundTransparency = 1;
+                    Position = dim2(0, 196, 0, 0);
+                    BorderColor3 = rgb(0, 0, 0);
+                    Size = dim2(1, -196, 0, 56);
+                    BorderSizePixel = 0;
+                    BackgroundColor3 = rgb(255, 255, 255)
+                }); cfg.multi_holder = items[ "multi_holder" ];
 
                 library:create( "Frame" , {
                     AnchorPoint = vec2(0, 1);
