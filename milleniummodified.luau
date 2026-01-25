@@ -552,11 +552,12 @@
                     BackgroundColor3 = rgb(255, 255, 255)
                 }); library:apply_theme(items[ "title" ], "accent", "TextColor3");
 
-				items[ "close_btn" ] = library:create( "TextButton" , {
-                    Parent = items[ "side_frame" ];
+                items[ "close_btn" ] = library:create( "TextButton" , {
+                    Parent = items[ "multi_holder" ];
                     Name = "\0";
                     BackgroundTransparency = 1;
-                    Position = dim2(1, -25, 0, 15);
+                    AnchorPoint = vec2(1, 0.5);
+                    Position = dim2(1, -15, 0.5, 0);
                     Size = dim2(0, 20, 0, 20);
                     Text = "X";
                     FontFace = fonts.font;
